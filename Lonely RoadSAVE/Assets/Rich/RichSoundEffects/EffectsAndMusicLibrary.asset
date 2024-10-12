@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337f1dbbb0cb04040a34ead5103a35dd, type: 3}
+  m_Name: EffectsAndMusicLibrary
+  m_EditorClassIdentifier: 
+  music:
+  - {fileID: 8300000, guid: 9b51dcd7e05384d4b97b4fe16c503a03, type: 3}
+  SoundEffectGroups:
+  - effectType: buttonPresses
+    effect:
+    - {fileID: 8300000, guid: 00ed1c74fb749be4b8f38cae5d12c35c, type: 3}
+    - {fileID: 8300000, guid: d696f5d5d626ba543b6958e0bec8defb, type: 3}
+    - {fileID: 8300000, guid: b2daeb117e5cd324181bdf20d244b55d, type: 3}
+    - {fileID: 8300000, guid: 302654d4d5ea62d469aece846a5087bb, type: 3}
+    - {fileID: 8300000, guid: 5dafadb991dbeeb4699d2e409552934b, type: 3}
+  - effectType: 
+    effect: []
+  - effectType: 
+    effect: []

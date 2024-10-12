@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880b6c410924b5849b440065bde8fd16, type: 3}
+  m_Name: Chat01
+  m_EditorClassIdentifier: 
+  eventName: Event01
+  textDescriptionToShow:
+  - note: Introduccion
+    textInLanguage:
+    - Hola
+    - Hello
+  uiEvent: {fileID: 0}
+  uiImage: {fileID: 2800000, guid: d6a2f258c0e02364782aae3c5658963e, type: 3}
+  _damageoption1: 20
+  _damageoption2: 50
