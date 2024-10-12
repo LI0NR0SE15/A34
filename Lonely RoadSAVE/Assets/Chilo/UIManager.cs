@@ -9,27 +9,26 @@ public class UIManager : MonoBehaviour
 {
 
     #region singleton
-    private static UIManager instance;
-    public static UIManager GetInstance()
-    {
-        return instance;
-    }
+    public static UIManager Instance { get; private set; }
     #endregion
 
     [SerializeField] private GameObject _uiEvent = null;
-    [SerializeField] public TMP_Text _uiText;
-    [SerializeField] public Image _uiImage;
+    [SerializeField] private Image _uiImage;
     private bool _isTextActive = false;
     int currentText = 0;
-    public int _damageEvent1 = default;
-    public EventInfo _eventInfo = null; 
-
-    public GameObject UIevent => _uiEvent;
+    public int _damageEvent1 = default; 
     
 
     private void Awake()
     {
-        instance = this;
+        if (Instance != null)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
         Debug.Log("Instancia de UIManager creada");
     }
 
@@ -45,16 +44,17 @@ public class UIManager : MonoBehaviour
         
     }
 
-    public void ShowEvent(EventInfo neweventInfo)
+    public void UpdateShowEvent(EventInfo neweventInfo)
     {
-        _eventInfo = neweventInfo;
+        _uiImage.sprite = neweventInfo.EventImage;
+        _damageEvent1 = neweventInfo.Damageoption1;
         _uiEvent.SetActive(true);
     }
 
 
     public void ButtonOption1()
     {
-        SetDamageEventOption1();
+        
         Player.Instance.TakeDamageFromEvent(_damageEvent1);
         Debug.Log("El jugador recibe daño de evento");
         _uiEvent.SetActive(false) ;
@@ -66,17 +66,4 @@ public class UIManager : MonoBehaviour
         _uiEvent.SetActive(false);
     }
 
-    public void SetDamageEventOption1()
-    {
-        _eventInfo.GetDamageOption1(_damageEvent1);
-        Debug.Log("se seteo el damño de la opcion 1");
-    }
-
-    void OnLanguageChange()
-    {
-        if (!_isTextActive) return;
-        {
-            _uiText.text = _eventInfo.GetText(currentText - 1);
-        }
-    }
 }

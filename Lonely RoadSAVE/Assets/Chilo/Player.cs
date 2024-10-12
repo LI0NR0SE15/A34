@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigidbody2D = default;
     private Vector2 _movement = default;
 
+    bool _isAlive = true;
     int maxHealth = 100;
     int Currenthealth;
 
@@ -32,20 +33,22 @@ public class Player : MonoBehaviour
     {
         Currenthealth = maxHealth;
         _healthBar.SetMaxHealth(maxHealth);
+        _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _movement.x = Input.GetAxis("Horizontal") * _speed;
-        _movement.y = Input.GetAxis("Vertical") * _speed;
+        float DirectionX = Input.GetAxis("Horizontal");
+        float DirectionY = Input.GetAxis("Vertical");
 
+        _movement = new Vector2(DirectionX, DirectionY) * _speed;
     }
 
 
     void FixedUpdate()
     {
-        _rigidbody2D.MovePosition(_rigidbody2D.position + _movement * Time.fixedDeltaTime);
+        _rigidbody2D.velocity = _movement;
     }
 
 
@@ -54,5 +57,17 @@ public class Player : MonoBehaviour
         Currenthealth -= damage;
 
         _healthBar.SetHealth(Currenthealth);
+    }
+
+    public void CheckIsPlayerAlive()
+    {
+        if (_isAlive)
+        {
+            return;
+        }
+        else
+        {
+
+        }
     }
 }

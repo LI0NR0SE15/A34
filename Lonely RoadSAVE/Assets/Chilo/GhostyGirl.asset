@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 880b6c410924b5849b440065bde8fd16, type: 3}
-  m_Name: Chat01
+  m_Name: GhostyGirl
   m_EditorClassIdentifier: 
   textDescriptionToShow:
-  - note: Introduccion
+  - note: Dialogo
     textInLanguage:
-    - Hola
-    - Hello
+    - "Estoy Perdida, veo que eres el unico\npor aqui. Me ayudarias en llegar a mi\nHogar.\nPuedo
+      ense\xF1arte el lugar"
+    - "I'm lost, I see you're the only one\naround here. Would you help me \nget
+      to my Home?\nI can show you the place"
   uiEvent: {fileID: 0}
-  _damageoption1: 20
-  _damageoption2: 50
-  EventImage: {fileID: 21300000, guid: d6a2f258c0e02364782aae3c5658963e, type: 3}
+  _damageoption1: 100
+  _damageoption2: 0
+  EventImage: {fileID: 21300000, guid: 9cada749ae50fa247b4b338d7eca64a3, type: 3}

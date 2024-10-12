@@ -7,19 +7,15 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "New Event info", menuName = "Create Event data")]
 public class EventInfo : ScriptableObject
 {
-    [SerializeField] private string eventName = default;
-
     public MultiLanguajeText[] textDescriptionToShow;
 
     [SerializeField] private GameObject uiEvent = default;
-    public Texture2D uiImage;
+    [SerializeField] private int _damageoption1;
+    [SerializeField] private int _damageoption2;
+    public Sprite EventImage;
 
-    public string EventName => eventName;
-    public GameObject UI => uiEvent;
-
-
-    public int _damageoption1;
-    public int _damageoption2;
+    public int Damageoption1 { get { return _damageoption1; } }
+    public int Damageoption2 { get { return _damageoption2; } }
 
 
 
