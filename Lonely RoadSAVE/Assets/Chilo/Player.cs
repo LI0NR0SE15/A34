@@ -15,7 +15,9 @@ public class Player : MonoBehaviour
     int Currenthealth;
 
     public HealthBar _healthBar;
-    // Start is called before the first frame update
+
+    // Agregar un nuevo campo para el radio del gizmo
+    [SerializeField] private float _gizmoRadius = 2f; // Ajusta este valor según tus necesidades
 
     private void Awake()
     {
@@ -34,9 +36,9 @@ public class Player : MonoBehaviour
         Currenthealth = maxHealth;
         _healthBar.SetMaxHealth(maxHealth);
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
-    // Update is called once per frame
     void Update()
     {
         float DirectionX = Input.GetAxis("Horizontal");
@@ -45,14 +47,12 @@ public class Player : MonoBehaviour
         _movement = new Vector2(DirectionX, DirectionY) * _speed;
     }
 
-
     void FixedUpdate()
     {
         _rigidbody2D.velocity = _movement;
     }
 
-
-   public void TakeDamageFromEvent(int damage)
+    public void TakeDamageFromEvent(int damage)
     {
         Currenthealth -= damage;
 
@@ -69,5 +69,17 @@ public class Player : MonoBehaviour
         {
 
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        // Dibuja un gizmo de radio amarillo alrededor del jugador
+        Gizmos.color = Color.yellow;  // Establecer color del gizmo
+        Gizmos.DrawWireSphere(transform.position, _gizmoRadius);  // Dibuja el gizmo
+    }
+
+    public float GizmoRadius
+    {
+        get { return _gizmoRadius; }
     }
 }
