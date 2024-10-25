@@ -30,13 +30,6 @@ public class MenuActions : MonoBehaviour
         Application.Quit();
     }
 
-    public void Setting()
-    {
-        _TransitionScene.StartTransition();
-        SceneManager.LoadScene("ConfigScene");
-        isTransitioning = false;
-    }
-
     public void BackToMenu()
     {
         _TransitionScene.StartTransition();
